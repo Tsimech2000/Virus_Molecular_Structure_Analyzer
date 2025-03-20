@@ -1,4 +1,5 @@
 streamlit
 requests
 biopython
-py3Dmol
+py3Dmol  ✅ (Make sure this is included)
+
