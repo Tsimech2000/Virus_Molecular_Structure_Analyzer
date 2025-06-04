@@ -122,10 +122,10 @@ def extract_chemical_info(pdb_path):
             chains.add(chain.id)
             for residue in chain:
                 residue_count += 1
-                for atom in residue:
-                    atom_count += 1
-                    if atom.id[0] == "H":
-                        hetatom_count += 1
+                atoms = list(residue.get_atoms())
+                atom_count += len(atoms)
+                if residue.id[0] != " ":  # Hetero residue or water
+                    hetatom_count += len(atoms)
 
     mol_weight = atom_count * 12  # Approximate assuming carbon-based backbone
 
